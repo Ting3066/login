@@ -20,6 +20,7 @@ $user=$pdo->query($user_sql)->fetch();
     <h2>編輯資料</h2>
     <form action="save_user.php" method="post" class="col-md-6">
         <div class="list-group">
+            <input type="hidden" name="id" value='<?=$user['id'];?>'>
             <li class="list-group-item">帳號:<input type="text" name='acc' value="<?=$user['acc'];?>"></li>
             <li class="list-group-item">密碼:<input type="password" name='pw' value="<?=$user['pw'];?>"></li>
             <li class="list-group-item">姓名:<input type="text" name='name' value="<?=$user['name'];?>"></li>
