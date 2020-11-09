@@ -18,7 +18,7 @@ $check=$pdo->query($sql)->fetch();
 
 if(!empty($check)){
   echo "登入成功";
-  $member_sql="select * from member where login_id='{$check['id']}'";
+  $member_sql="select * from member where login_id='{$check['id']}";
   $member=$pdo->query($member_sql)->fetch();
   $role=$member['role'];
 
