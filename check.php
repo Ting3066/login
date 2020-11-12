@@ -18,10 +18,10 @@ $check=$pdo->query($sql)->fetch();
 
 if(!empty($check)){
   echo "登入成功";
-  $member_sql="select * from member where login_id='{$check['id']}";
+  $member_sql="select * from member where login_id='{$check['id']}'";
   $member=$pdo->query($member_sql)->fetch();
   $role=$member['role'];
-
+  setcookie("login",$acc,time()+120);
 
   switch($role){
     case '會員';
@@ -38,7 +38,7 @@ if(!empty($check)){
   } 
 
 }else{
-  header("location:index.php?meg=帳密布正確，請重新登入或註冊新帳號");
+  header("location:index.php?meg=帳密不正確，請重新登入或註冊新帳號");
 }
 
 
