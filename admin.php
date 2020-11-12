@@ -4,13 +4,25 @@ include_once('header.php');
 
 ?>
 <body>
+
     <h1 class="text-center">管理中心</h1>
     
-
+    <div class="col-8 mx-auto d-flex justify-content-between">
+    <span>
     <?php
+
     if(isset($_COOKIE['login'])){
         echo $_COOKIE['login']."歡迎";
     }
+
+    ?>
+    </span>
+
+    <span>
+    <a href="logout.php">登出</a>
+    </span>
+    </div>
+ <?php
 
 
 
