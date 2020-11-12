@@ -21,7 +21,9 @@ if(!empty($check)){
   $member_sql="select * from member where login_id='{$check['id']}'";
   $member=$pdo->query($member_sql)->fetch();
   $role=$member['role'];
-  setcookie("login",$acc,time()+120);
+  // setcookie("login",$acc,time()+120);
+  session_start();
+  $_SESSION['login']=$acc;
 
   switch($role){
     case '會員';
