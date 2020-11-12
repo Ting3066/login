@@ -5,7 +5,7 @@ if(isset($_COOKIE['login'])){
   $dsn="mysql:host=localhost;dbname=member;charset=utf8";
   $pdo=new PDO($dsn,'root','');
 
-  $sql_user="select `member`.`role`,`login`.`acc` from member,login where acc='{$_COOKIE['login']}'";
+  $sql_user="select `member`.`role`,`login`.`acc` from member,login where `member`.`login_id`=`login`.`id` &&  acc='{$_COOKIE['login']}'";
   echo $sql_user;
   $user=$pdo->query($sql_user)->fetch(PDO::FETCH_ASSOC);
 
